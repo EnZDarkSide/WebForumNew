@@ -1,0 +1,19 @@
+
+<!-- Поиск -->
+<div class="col-12 d-flex mt-10">
+  <a href="/" class="font-weight-bold mt-auto mb-auto" style="
+    height: fit-content;"> На главную </a>
+  <input type="text" class="col-2 ml-auto" [(ngModel)]="searchInput">
+  <button type="submit btn btn-info" (click)="submitSearch()"> Поиск </button>
+</div>
+
+<!-- Топ-бар -->
+<div class="col-12 text-center welcome-bar">
+  Добро пожаловать, {{user.username}}
+  <ng-container *ngIf="!user.token">
+    (<a href="/login">Вход</a> | <a href="/register">Регистрация</a>)
+  </ng-container>
+  <ng-container *ngIf="user.token">
+    <a class="pointer" (click)="logout()">(Выйти)</a>
+  </ng-container>
+</div>

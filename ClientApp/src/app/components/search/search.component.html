@@ -1,0 +1,74 @@
+<h4 class="ml-10 col-12">
+  Результаты поиска
+</h4>
+
+<div class="container" *ngIf="searchResult">
+  <div class="alert alert-info" *ngIf="searchResult.discussions?.length == 0">Обсуждений с заданными параметрами не создано</div>
+  <div class="section"  *ngIf="searchResult.discussions?.length > 0">
+    <div class="maintitle">Обсуждения</div>
+    <div class="table-responsive">
+      <table class="table mb-0">
+        <thead>
+          <tr class="fs-13">
+            <th scope="col" class="font-weight-bold"></th>
+            <th scope="col" class="font-weight-bold">Обсуждение<i class="fa" aria-hidden="true"></i></th>
+            <th scope="col" class="font-weight-bold text-center digit-col">Тем<i class="fa" aria-hidden="true"></i></th>
+            <th scope="col" class="font-weight-bold text-center digit-col">Ответов<i class="fa" aria-hidden="true"></i></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="line-height: 1.0;" *ngFor="let discussion of searchResult.discussions">
+            <td class="p-5px pl-0" style="line-height: 15px;" class="discussion-image">
+              <img src="{{discussion.imgSource}}" alt=""/>
+            </td>
+            <td>
+              <a class="strong" [routerLink]="['/discussions',discussion.id]" routerLinkActive="router-link-active">{{discussion.title}}</a>
+              <hr>
+              <span class="text-muted">{{discussion.description}}</span>
+            </td>
+            <td class="text-center">
+              {{discussion.topicsCount}}
+            </td>
+            <td class="text-center">
+              {{discussion.messagesCount}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="alert alert-info" *ngIf="searchResult.topics?.length == 0">Тем с заданными параметрами не создано</div>
+  <div class="section"  *ngIf="searchResult.topics?.length > 0">
+    <div class="maintitle">Темы</div>
+    <div class="table-responsive">
+      <table class="table mb-0">
+        <thead>
+          <tr class="fs-13">
+            <th scope="col" class="font-weight-bold"></th>
+            <th scope="col" class="font-weight-bold">Тема<i class="fa" aria-hidden="true"></i></th>
+            <th scope="col" class="font-weight-bold text-center digit-col">Ответов<i class="fa" aria-hidden="true"></i></th>
+            <th scope="col" class="font-weight-bold text-center digit-col">Автор<i class="fa" aria-hidden="true"></i></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="line-height: 1.0;" *ngFor="let topic of searchResult.topics">
+            <td class="p-5px pl-0" style="line-height: 15px;" class="discussion-image">
+            </td>
+            <td>
+              <a class="strong" [routerLink]="['/topic', topic.id]" routerLinkActive="router-link-active">{{topic.title}}</a>
+            <hr>
+              <span class="text-muted">{{topic.description}}</span>
+            </td>
+            <td class="text-center">
+              {{topic.messagesCount}}
+            </td>
+            <td class="text-center" *ngIf="topic.author">
+              {{topic.author.username}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

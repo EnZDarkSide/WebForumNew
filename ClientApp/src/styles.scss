@@ -1,0 +1,52 @@
+/* Importing Bootstrap SCSS file. */
+@import '~assets/essentials.css';
+
+@import '~quill/dist/quill.core.css';
+@import '~quill/dist/quill.bubble.css';
+@import '~quill/dist/quill.snow.css';
+
+.borderwrap h3, .maintitle, .maintitlecollapse {
+  border: 0px solid #2982cc;
+  border-bottom: 1px solid #5176b5;
+  color: #FFF;
+  font-size: 10px;
+  font-weight: bold;
+  margin: 0px;
+  padding: 5px;
+  background-color: #2982CC;
+  background: #57a5de;
+  background: -moz-linear-gradient(top, #57a5de 0%, #047fbd 100%);
+  background: -webkit-linear-gradient(top, #57a5de 0%, #047fbd 100%);
+  background: linear-gradient(to bottom, #57a5de 0%, #047fbd 100%);
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+
+.discussion-image {
+  width: 48px;
+  height: 48px;
+}
+
+* {
+  font-size: 11px;
+}
+
+.mx-10 {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.section {
+  background: #FFF;
+  border: 1px solid #2982cc;
+  padding: 0px;
+  margin: 0px;
+  margin-bottom: 10px;
+}
+
+.digit-col {
+  width: 10%;
+}
